@@ -8,10 +8,23 @@ import java.io.FileInputStream;
 public class ComparePngByteVsPixel {
 
     public static void main(String[] args) {
-
+        
+        //png
         File file1 = new File("img1.png");
         File file2 = new File("img2.png");
-
+        
+        /*
+        //jpg
+        File file1 = new File("img3.jpg");
+        File file2 = new File("img4.jpg");
+        */
+        
+        /*
+        //bmp
+        File file1 = new File("img5.bmp");
+        File file2 = new File("img6.bmp");
+        */
+        
         boolean result = false;
 
 
@@ -32,9 +45,7 @@ public class ComparePngByteVsPixel {
 
         try {
             result = compareByPixels(file1, file2);
-        } catch (IOException e) {
-
-        }
+        } catch (IOException e) {}
 
         System.out.println("Finished comparing " + file1.getPath() + " and " + file2.getPath() + ": " + result + "\n");
     }
@@ -42,13 +53,11 @@ public class ComparePngByteVsPixel {
     //Byte by Byte
     public static boolean compareByBytes(File f1, File f2) throws IOException {
 
-
         String filePath1 = f1.getPath();
         String filePath2 = f2.getPath();
 
         // Debug
         //System.out.println("comparing " + filePath1 + " and " + filePath2);
-
 
         try (FileInputStream fis1 = new FileInputStream(filePath1); FileInputStream fis2 = new FileInputStream(filePath2)) {
 
